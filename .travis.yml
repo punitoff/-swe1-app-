@@ -5,4 +5,18 @@ python:
 
 install:
   - pip install -r requirements.txt
-  - make build
+
+env:
+  - DJANGO_SETTINGS_MODULE="ebdjango2.settings"
+
+before_script:
+  - chmod +x ./manage.py
+  - python manage.py migrate
+  - python manage.py collectstatic --noinput
+
+
+script:
+  - python manage.py test
+
+after_script:
+  - coveralls
