@@ -5,6 +5,7 @@ python:
 
 install:
   - pip install -r requirements.txt
+  - make build
 
 env:
   - DJANGO_SETTINGS_MODULE="ebdjango2.settings"
