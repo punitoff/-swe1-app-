@@ -6,6 +6,9 @@ python:
 install:
   - pip install -r requirements.txt
 
+env:
+  - DJANGO_SETTINGS_MODULE="ebdjango2.settings"
+
 before_script:
   - python manage.py migrate
   - python manage.py collectstatic --noinput
